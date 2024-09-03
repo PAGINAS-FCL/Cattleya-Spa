@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASAJISTAS</title>
+    <link rel="icon" href="icono-logo/icono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="google-site-verification" content="bwfVtxDpdwa7ilg3SXEWbRX9UzTkdElBA1FPD2QnGNI" />
+</head>
+<body>
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="container">
+        <nav class="nav-main">
+            <img src="icono-logo/logo-cattleya.jpg" alt="logo" class="nav-brand">
+            <ul class="nav-menu">
+                <li>
+                    <a href="introdu.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="inicio.html">Servicios</a>
+                </li>
+                <li>
+                    <a href="personal.html">Masajistas</a>
+                </li>
+                <li>
+                    <a href="medios.html">Medios de pago</a>
+                </li>
+                <li>
+                    <a href="nostros.html">Nosotros</a>
+                </li>
+                <li>
+                    <a href="reserva.html">Reserva</a>
+                </li>
+            </ul>
+        </nav>
+        <hr>
+        <div id="contenedor-imagenes">
+            <a href="https://wa.me/573170674136" target="_blank">
+                <img src="imagenes/wass.png"alt="Imagen1" class="imagen1" onmouseover="mostrarMensajeW()" onmouseout="ocultarMensajeW()">
+            </a>
+            <div class="mensaje1" id="mensaje1">¡Reserva Aqui!</div>
+            <a href="https://t.me/Cattleyaspa" target="_blank">
+                <img src="imagenes/telegram.png" alt="Imagen 2" class="imagen2" onmouseout="ocultarMensajeT()" onmouseover="mostrarMensajeT()">
+            </a>
+            <div class="mensaje2" id="mensaje2">¡Reserva Aqui!</div>
+        </div> 
+        <!--SHOWCASE-->
+        <header class="showcase">
+            <h2>MASAJISTAS</h2>
+            <p>Cattleya Spa,Te invita a observar nuestro staff, las terapeutas que te llevaran al mayor punto de relajacion</p>
+        </header>
+        <hr>
+        <div class="slider-container" id="carousel-container">
+            <div id="image-slider">
+                <div class="slide">
+                   <a href="chicas/cinthia.html"><img class="imo" src="personal/cinthia4.jpg " alt="Cinthia"></a>
+                   <p class="name-chicas">CINTHIA</p> 
+                </div>
+                <div class="slide">
+                  <a href="chicas/kerly.html"><img class="imo"src="personal/kerly1.jpg" alt="Kerly"></a>  
+                  <p class="name-chicas">KERLY</p>
+                </div>
+                <div class="slide">
+                  <a href="chicas/nicoll.html"><img class="imo" src="personal/nicoll1.jpg" alt="Nicoll"></a>  
+                  <p class="name-chicas">NICOLL</p>
+                </div>
+                <div class="slide">
+                    <a href="chicas/sara.html"><img class="imo" src="personal/sara2.jpg" alt="Sara"></a> 
+                    <p class="name-chicas">SARA</p> 
+                  </div>
+                  <div class="slide">
+                    <a href="chicas/daniela.html"><img class="imo" src="personal/daniela10.jpg" alt="Daniela"></a>  
+                    <p class="name-chicas">DANIELA</p>
+                  </div>
+            </div>
+            <div id="prev" onclick="prevSlide">&#10094;</div>
+            <div id="next" onclick="nextSlide">&#10095;</div>
+        </div>
+        <hr>
+        
+        <!--FOOTER-->
+        <div class="footer-links">
+            <div class="footer-container">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <p>Tel- 3009818044 - 3170674136 - 6015724950</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p><i class="fab fa-instagram">/</i>@cattleya2643 <br>
+                                <i class="fab fa-facebook-f">/</i>Cattleya Mendez <br>
+                                <i class="fab fa-twitter">/</i>@cattleyaspa</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p>Bogotá DC, Colombia</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img class="logo-fo" src="icono-logo/logo-cattleya.jpg" alt="logo">
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <p>Politicas del sitio <br>
+                               Terminos y Condiciones <br>
+                            Trabaja con nosotras <br>
+                            Todos los derechos reservados <br>
+                        Contactanos</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <footer class="footer">
+            <h3>CATTLEYA SPA 2023 - COPYRIGHT</h3>
+        </footer>
+
+    </div>
+    <script src="action.js"></script>
+</body>
+</html>
