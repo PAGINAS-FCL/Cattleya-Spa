@@ -79,29 +79,98 @@ function mostrarMensajeW() {
 
 //SLIDER DE PERSONAL
  
-let currentIndex = 0;
-const totalSlides = document.querySelectorAll('.slide').length;
+  const slider = document.getElementById('image-slider');
+  const slides = document.querySelectorAll('.slide');
+  const container = document.getElementById('carousel-container');
+  const slideWidth = slides[0].offsetWidth + 20;
+  let currentIndex = 0;
+  let autoSlideInterval;
 
-function showSlide(index) {
-    const slider = document.getElementById('image-slider');
-    const slideWidth = document.querySelector('.slide').clientWidth;
-    const newPosition = -index * slideWidth;
-    slider.style.transform = `translateX(${newPosition}px)`;
-    currentIndex = index;
-}
+  // Clonar los primeros slides al final para el efecto infinito
+  const totalSlides = slides.length;
+  for (let i = 0; i < totalSlides; i++) {
+    const clone = slides[i].cloneNode(true);
+    slider.appendChild(clone);
+  }
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    showSlide(currentIndex);
-}
+  function updateSlidePosition() {
+    slider.style.transition = 'transform 0.5s ease-in-out';
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
 
-function prevSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    showSlide(currentIndex);
-}
+  function nextSlide() {
+    currentIndex++;
+    updateSlidePosition();
+    if (currentIndex === totalSlides) {
+      setTimeout(() => {
+        slider.style.transition = 'none';
+        currentIndex = 0;
+        slider.style.transform = `translateX(0)`;
+      }, 500);
+    }
+  }
 
-document.getElementById('next').addEventListener('click', nextSlide);
-document.getElementById('prev').addEventListener('click', prevSlide);
+  function prevSlide() {
+    if (currentIndex === 0) {
+      slider.style.transition = 'none';
+      currentIndex = totalSlides;
+      slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      setTimeout(() => {
+        currentIndex--;
+        updateSlidePosition();
+      }, 20);
+    } else {
+      currentIndex--;
+      updateSlidePosition();
+    }
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 1000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  // Iniciar auto-slide
+  startAutoSlide();
+
+  // Pausar al hacer hover
+  container.addEventListener('mouseenter', stopAutoSlide);
+  container.addEventListener('mouseleave', startAutoSlide);
+
+  // Soporte táctil
+  let startX = 0;
+  let endX = 0;
+
+  container.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    stopAutoSlide();
+  });
+
+  container.addEventListener('touchmove', (e) => {
+    endX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchend', () => {
+    const delta = endX - startX;
+    if (Math.abs(delta) > 50) {
+      if (delta < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    startAutoSlide();
+  });
+
+  // Ajuste en redimensionamiento
+  window.addEventListener('resize', () => {
+    slider.style.transition = 'none';
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  });
+
 
 
 
